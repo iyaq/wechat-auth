@@ -18,7 +18,7 @@ class WeChatAuth {
   }
 
   openAuthPage (redirectUri = encodeURIComponent(window.location.href)) {
-    // this.removeAccessToken()
+    this.removeAccessToken()
     this.removeAuthCode()
     let authPageBaseUri = 'https://open.weixin.qq.com/connect/oauth2/authorize'
     let authParams = `?appid=${this.config.appid}&redirect_uri=${redirectUri}&response_type=${this.config.responseType}&scope=${this.config.scope}#wechat_redirect`
@@ -89,12 +89,12 @@ class WeChatAuth {
     let self = this
     return (accessToken, to) => {
       if (accessToken) {
-        // self.setAccessToken(accessToken)
+        self.setAccessToken(accessToken)
         to
           ? next(to)
           : next()
       } else {
-        // self.removeAccessToken()
+        self.removeAccessToken()
         to && next(to)
       }
       self.removeAuthCode()
