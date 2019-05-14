@@ -88,6 +88,9 @@ class WeChatAuth {
   next (next) {
     let self = this
     return (openid, to) => {
+      console.log(next);
+      console.log(openid);
+      console.log(to);
       if (openid) {
         to
           ? next(to)
