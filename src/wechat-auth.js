@@ -87,14 +87,12 @@ class WeChatAuth {
 
   next (next) {
     let self = this
-    return (AuthCode, to) => {
-      if (AuthCode) {
-        self.setAuthCode(AuthCode)
+    return (openid, to) => {
+      if (openid) {
         to
           ? next(to)
           : next()
       } else {
-        self.removeAuthCode()
         to && next(to)
       }
       self.removeAuthCode()
