@@ -26,10 +26,10 @@ export default {
     function checkRouterAuth (to, from, next) {
       let authCode = weChatAuth.getAuthCode()
       if ((!to.meta || !to.meta.auth) && !authCode) return true
-      if (!authCode) {
+      if (!authCode && !weChatAuth.getAccessToken()) {
         weChatAuth.openAuthPage(encodeURIComponent(window.location.href))
         return false
-      } else if (authCode) {
+      } else if (authCode && !weChatAuth.getAccessToken()) {
         weChatAuth.getCodeCallback(next)
         return false
       }
