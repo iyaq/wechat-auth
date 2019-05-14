@@ -71,32 +71,35 @@ class WeChatAuth {
     window.location.href = href
   }
 
-  setAccessToken (accessToken) {
-    if (!accessToken) return false
-    window.localStorage.setItem('access_token', accessToken)
+  setAccessToken (openid) {
+    if (!openid) return false
+    window.localStorage.setItem('openid', openid)
     return true
   }
 
   getAccessToken () {
-    return window.localStorage.getItem('access_token')
+    return window.localStorage.getItem('openid')
   }
 
   removeAccessToken () {
-    window.localStorage.removeItem('access_token')
+    window.localStorage.removeItem('openid')
   }
 
   next (next) {
     let self = this
+    
     return (openid, to) => {
       console.log('111111111111');
       console.log(next);
       console.log(openid);
       console.log(to);
       if (openid) {
+        self.setAccessToken(openid)
         to
           ? next(to)
           : next()
       } else {
+        self.removeAccessToken()
         to && next(to)
       }
       self.removeAuthCode()
