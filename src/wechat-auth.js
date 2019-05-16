@@ -73,7 +73,7 @@ class WeChatAuth {
 
   setAccessToken (openid) {
     if (!openid) return false
-    window.localStorage.setItem('openid', openid)
+    window.sessionStorage.setItem('openid', openid)
     return true
   }
 
