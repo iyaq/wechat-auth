@@ -34,7 +34,7 @@ export default {
       } else if (authCode && !weChatAuth.getAccessToken()) {
         weChatAuth.getCodeCallback(next)
         return false
-      }else if (!authCode && weChatAuth.getAccessToken()) {
+      }else if (authCode && weChatAuth.getAccessToken()) {
         weChatAuth.getCodeCallback(next)
         return false
       }
