@@ -90,7 +90,7 @@ class WeChatAuth {
     return (openid, to) => {
       console.log('111111111111');
       if (openid) {
-        //self.setAccessToken(openid)
+        self.setAccessToken(openid)
         to
           ? next(to)
           : next()
