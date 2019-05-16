@@ -78,11 +78,11 @@ class WeChatAuth {
   }
 
   getAccessToken () {
-    return window.localStorage.getItem('openid')
+    return window.sessionStorage.getItem('openid')
   }
 
   removeAccessToken () {
-    window.localStorage.removeItem('openid')
+    window.sessionStorage.removeItem('openid')
   }
 
   next (next) {
