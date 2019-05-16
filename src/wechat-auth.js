@@ -86,15 +86,11 @@ class WeChatAuth {
   }
 
   next (next) {
-    let self = this
-    
+    let self = this    
     return (openid, to) => {
       console.log('111111111111');
-      console.log(next);
-      console.log(openid);
-      console.log(to);
       if (openid) {
-        self.setAccessToken(openid)
+        //self.setAccessToken(openid)
         to
           ? next(to)
           : next()
