@@ -26,6 +26,8 @@ export default {
     function checkRouterAuth (to, from, next) {
       let authCode = weChatAuth.getAuthCode()
       if ((!to.meta || !to.meta.auth) && !authCode) return true
+      console.log("authCode:============"+authCode)
+      console.log("getAccessToken:============"+!weChatAuth.getAccessToken())
       if (!authCode && !weChatAuth.getAccessToken()) {
         weChatAuth.openAuthPage(encodeURIComponent(window.location.href))
         return false
