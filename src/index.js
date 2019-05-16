@@ -31,7 +31,10 @@ export default {
       if (!authCode && !weChatAuth.getAccessToken()) {
         weChatAuth.openAuthPage(encodeURIComponent(window.location.href))
         return false
-      } else if (authCode) {
+      } else if (authCode && !weChatAuth.getAccessToken()) {
+        weChatAuth.getCodeCallback(next)
+        return false
+      }else if (!authCode && weChatAuth.getAccessToken()) {
         weChatAuth.getCodeCallback(next)
         return false
       }
