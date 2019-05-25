@@ -9,7 +9,7 @@
 import WeChatAuth from './wechat-auth'
 import url from 'url'
 import querystring from 'querystring'
-
+import wx from 'weixin-js-sdk'
 export default {
   install (Vue, options) {
     let weChatAuth = new WeChatAuth(options)
