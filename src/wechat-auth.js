@@ -88,7 +88,6 @@ class WeChatAuth {
   next (next) {
     let self = this    
     return (openid, to) => {
-      console.log('111111111111');
       if (openid) {
         self.setAccessToken(openid)
         to
