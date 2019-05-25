@@ -47,6 +47,7 @@ export default {
     document.title = to.meta.title
   }
       next()
+      console.log("第2次进啊")
     }
 
     router.beforeEach((to, from, next) => {
