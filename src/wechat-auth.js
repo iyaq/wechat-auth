@@ -93,6 +93,7 @@ class WeChatAuth {
         to
           ? next(to)
           : next()
+        console.log("第1次进啊")
       } else {
         self.removeAccessToken()
         to && next(to)
