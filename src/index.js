@@ -49,7 +49,7 @@ export default {
       let mark = to.fullPath.indexOf('code')
       console.log(mark);
       console.log(from.fullPath);
-      if (mark !== -1 && from.fullPath === '/home') {
+      if (mark !== -1 && from.fullPath === '/') {
         wx.closeWindow()
        }else{
       next()
