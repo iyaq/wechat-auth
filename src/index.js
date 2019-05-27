@@ -50,6 +50,7 @@ export default {
       console.log(to.fullPath);
       console.log(from.fullPath);
       if (mark != -1 && from.fullPath == '/') {
+        console.log(3333333333333)
         wx.closeWindow()
        }else{
       next()
