@@ -46,9 +46,9 @@ export default {
       if (to.meta.title) {
         document.title = to.meta.title
       }
-      let mark = to.fullPath.indexOf('home')
-      console.log(to.fullPath);
-      console.log(from.fullPath);
+      let mark = to.fullPath.indexOf('code')
+      console.log("to:"+to.fullPath);
+      console.log("from:"+from.fullPath);
       if (mark != -1 && from.fullPath == '/home') {
         console.log(3333333333333)
         wx.closeWindow()
