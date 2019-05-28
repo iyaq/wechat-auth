@@ -70,6 +70,7 @@ class WeChatAuth {
       href += hash
     }
     window.location.href = href
+ 
   }
 
   setAccessToken (openid) {
