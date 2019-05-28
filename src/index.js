@@ -40,22 +40,20 @@ export default {
     function beforeEach (to, from, next) {
       let query = querystring.parse(url.parse(window.location.href).query)
       let code = query.code
-      urlCodeQueryFilter(code)
       if (!code && !checkRouterAuth(to, from, next)) {
         return false
       }
-      if (to.meta.title) {
+      if (code) {
+        urlCodeQueryFilter(code)
+      }else{
+        if (to.meta.title) {
         document.title = to.meta.title
       }
       //let mark = to.fullPath.indexOf('code')
       console.log("to:"+to.fullPath);
       console.log("from:"+from.fullPath);
-      //if (mark != -1 && from.fullPath == '/home') {
-      //  console.log(3333333333333)
-      //  wx.closeWindow()
-     //  }else{
       next()
-      // }
+      }   
     }
 
     router.beforeEach((to, from, next) => {
