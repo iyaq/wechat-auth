@@ -39,6 +39,7 @@ class WeChatAuth {
 
   removeAuthCode () {
     window.sessionStorage.removeItem('auth_code')
+    console.log("我就看一下auth_code打印了没有")
   }
 
   removeUrlCodeQuery () {
